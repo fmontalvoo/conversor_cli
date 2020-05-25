@@ -1,9 +1,76 @@
+#include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
 
+/**
+ *
+ * Metodo para elevar a una potencia un numero.
+ *
+ */
+int elevar(int n, int e){
+	int res = n;
+	if (e == 0)
+		res = 1;
+	else
+		for (int i = 1; i < e; i++)
+			res *= n;
+	return res;
+}
+
+/**
+ *
+ * Invierte una cadena de texto.
+ *
+ */
+char* invertir(char* str, int len){
+	char* i = str;
+	char* j = str + len - 1;
+	while (i < j) {
+		char aux = *i;
+		*i++ = *j;
+		*j-- = aux;
+	}
+	return str;
+}
+
+int resolver(char* numero, int base){
+	int resultado = 0;
+	for (int i = strlen(numero) - 1, j = 0; i >= 0; i--, j++){
+		int n = numero[i] - '0';//Convierte char a int
+		int m = elevar(base, j);
+		int r = n * m;
+		resultado += r;
+	}
+	return resultado;
+}
+
+char letras(int n){
+
+	switch (n){
+		case 10: return 'A';
+		case 11: return 'B';
+		case 12: return 'C';
+		case 13: return 'D';
+		case 14: return 'E';
+		case 15: return 'F';
+		default: return 0;
+	}
+}
+
+int numeros(char c){
+	switch (c){
+		case 'A': return 10;
+		case 'B': return 11;
+		case 'C': return 12;
+		case 'D': return 13;
+		case 'E': return 14;
+		case 'F': return 15;
+		default: return 0;
+	}
+}
+
 int binario_decimal(char* numero){
-	printf("Binario a Decimal: %s\n", numero);
-	return 0;
+	return resolver(numero, 2);
 }
 
 int binario_octal(char* numero){
@@ -17,8 +84,14 @@ char* binario_hexadecimal(char* numero){
 }
 
 char* decimal_binario(int numero){
-	printf("Decimal a Binario: %d\n", numero);
-	return 0;
+	char* resultado;
+	char aux[100];
+	for (int i = numero, j = 0; i > 0; i /= 2, j++){
+		int res = i % 2;
+		aux[j] = (res + '0'); // Convierte int a char
+	}
+	resultado = aux;
+	return invertir(resultado, strlen(resultado));
 }
 
 int decimal_octal(int numero){
