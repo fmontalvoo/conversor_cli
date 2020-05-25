@@ -89,6 +89,7 @@ char* decimal_binario(int numero){
 	for (int i = numero, j = 0; i > 0; i /= 2, j++){
 		int res = i % 2;
 		aux[j] = (res + '0'); // Convierte int a char
+		aux[j+1] = '\0';
 	}
 	resultado = aux;
 	return invertir(resultado, strlen(resultado));
