@@ -1,6 +1,3 @@
-#include <stdlib.h>
-#include <stdio.h>
-#include <string.h>
 #include <getopt.h>
 
 #include "conversor.h"
@@ -11,7 +8,7 @@ static struct option long_options[] = {
 	{"octal"	,no_argument	,0	,'o'},
 	{"hexadecimal"	,no_argument	,0	,'h'},
 	{"number"	,required_argument,	0,'n'},
-	{0,0, 0, 0}
+	{0, 0, 0, 0}
 };
 
 void set_option(char options[], char c, int index){
@@ -25,53 +22,53 @@ void chose_option(int option, char* numero){
 	int n = 0;
 	switch(option){
 
-	case 1:
-		binario_decimal(numero);
-	break;
+		case 1:
+			printf("%d\n", binario_decimal(numero));
+		break;
 
-	case 2:
-		binario_octal(numero);
-	break;
+		case 2:
+			binario_octal(numero);
+		break;
 
-	case 3:
-		binario_hexadecimal(numero);
-	break;
+		case 3:
+			binario_hexadecimal(numero);
+		break;
 
-	case 4:
-		decimal_binario(atoi(numero));
-	break;
-	
-	case 5:
-		decimal_octal(atoi(numero));
-	break;
-	
-	case 6:
-		decimal_hexadecimal(atoi(numero));
-	break;
-	
-	case 7:
-		octal_binario(atoi(numero));
-	break;
-	
-	case 8:
-		octal_decimal(atoi(numero));
-	break;
-	
-	case 9:
-		octal_hexadecimal(atoi(numero));
-	break;
-	
-	case 10:
-		hexadecimal_binario(numero);
-	break;
+		case 4:
+			printf("%s\n", decimal_binario(atoi(numero)));
+		break;
+		
+		case 5:
+			decimal_octal(atoi(numero));
+		break;
+		
+		case 6:
+			decimal_hexadecimal(atoi(numero));
+		break;
+		
+		case 7:
+			octal_binario(atoi(numero));
+		break;
+		
+		case 8:
+			octal_decimal(atoi(numero));
+		break;
+		
+		case 9:
+			octal_hexadecimal(atoi(numero));
+		break;
+		
+		case 10:
+			hexadecimal_binario(numero);
+		break;
 
-	case 11:
-		hexadecimal_decimal(numero);
-	break;
-	
-	case 12:
-		hexadecimal_octal(numero);
-	break;
+		case 11:
+			hexadecimal_decimal(numero);
+		break;
+		
+		case 12:
+			hexadecimal_octal(numero);
+		break;
 
 	}
 }
@@ -94,33 +91,33 @@ int main(int argc, char *argv[]){
 		
 		switch(option){
 		
-		case 'b':
-			set_option(options, 'b', index);
-			index++;
-		break;
-		
-		case 'd':
-			set_option(options, 'd', index);
-			index++;
-		break;
-		
-		case 'o':
-			set_option(options, 'o', index);
-			index++;
-		break;
-		
-		case 'h':
-			set_option(options, 'h', index);
-			index++;
-		break;
-		
-		case 'n':
-			numero = optarg;
-		break;
-		
-		default:
-			printf("Error\n");
-			exit(EXIT_FAILURE);
+			case 'b':
+				set_option(options, 'b', index);
+				index++;
+			break;
+			
+			case 'd':
+				set_option(options, 'd', index);
+				index++;
+			break;
+			
+			case 'o':
+				set_option(options, 'o', index);
+				index++;
+			break;
+			
+			case 'h':
+				set_option(options, 'h', index);
+				index++;
+			break;
+			
+			case 'n':
+				numero = optarg;
+			break;
+			
+			default:
+				printf("Error\n");
+				exit(EXIT_FAILURE);
 		}
 	}
 
