@@ -31,7 +31,7 @@ void chose_option(int option, char* numero){
 		break;
 
 		case 3:
-			binario_hexadecimal(numero);
+			printf("%s\n", binario_hexadecimal(numero));
 		break;
 
 		case 4:
@@ -43,7 +43,7 @@ void chose_option(int option, char* numero){
 		break;
 		
 		case 6:
-			decimal_hexadecimal(atoi(numero));
+			printf("%s\n", decimal_hexadecimal(atoi(numero)));
 		break;
 		
 		case 7:
@@ -55,19 +55,19 @@ void chose_option(int option, char* numero){
 		break;
 		
 		case 9:
-			octal_hexadecimal(atoi(numero));
+			printf("%s\n", octal_hexadecimal(numero));
 		break;
 		
 		case 10:
-			hexadecimal_binario(numero);
+			printf("%s\n", hexadecimal_binario(numero));
 		break;
 
 		case 11:
-			hexadecimal_decimal(numero);
+			printf("%d\n", hexadecimal_decimal(numero));
 		break;
 		
 		case 12:
-			hexadecimal_octal(numero);
+			printf("%s\n", hexadecimal_octal(numero));
 		break;
 
 	}
