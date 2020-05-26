@@ -33,7 +33,7 @@ char* invertir(char* str, int len){
 	return str;
 }
 
-int resolver(char* numero, int base){
+int resolver_exp(char* numero, int base){
 	int resultado = 0;
 	for (int i = strlen(numero) - 1, j = 0; i >= 0; i--, j++){
 		int n = numero[i] - '0';//Convierte char a int
@@ -42,6 +42,18 @@ int resolver(char* numero, int base){
 		resultado += r;
 	}
 	return resultado;
+}
+
+char* resolver_div(int numero, int dividendo){
+	char* resultado;
+	char aux[100];
+	for (int i = numero, j = 0; i > 0; i /= dividendo, j++){
+		int res = i % dividendo;
+		aux[j] = res + '0'; // Convierte int a char
+		aux[j+1] =  '\0';
+	}
+	resultado = aux;
+	return invertir(resultado, strlen(resultado));
 }
 
 char letras(int n){
@@ -70,33 +82,27 @@ int numeros(char c){
 }
 
 int binario_decimal(char* numero){
-	return resolver(numero, 2);
-}
-
-int binario_octal(char* numero){
-	printf("Binario a Octal: %s\n", numero);
-	return 0;
-}
-
-char* binario_hexadecimal(char* numero){
-	printf("Binario a Hexadecimal: %s\n", numero);
-	return 0;
+	printf("%c", '\0');
+	return resolver_exp(numero, 2);
 }
 
 char* decimal_binario(int numero){
-	char* resultado;
-	char aux[100];
-	for (int i = numero, j = 0; i > 0; i /= 2, j++){
-		int res = i % 2;
-		aux[j] = (res + '0'); // Convierte int a char
-		aux[j+1] = '\0';
-	}
-	resultado = aux;
-	return invertir(resultado, strlen(resultado));
+	printf("%c", '\0');
+	return resolver_div(numero, 2);
 }
 
-int decimal_octal(int numero){
-	printf("Decimal a Octal: %d\n", numero);
+int octal_decimal(char* numero){
+	printf("%c", '\0');
+	return resolver_exp(numero, 8);
+}
+
+char* decimal_octal(int numero){
+	printf("%c", '\0');
+	return resolver_div(numero, 8);
+}
+
+int hexadecimal_decimal(char* numero){
+	printf("Hexadecimal a Decimal: %s\n", numero);
 	return 0;
 }
 
@@ -105,13 +111,20 @@ char* decimal_hexadecimal(int numero){
 	return 0;
 }
 
-char* octal_binario(int numero){
-	printf("Octal a Binario: %d\n", numero);
-	return 0;
+char* binario_octal(char* numero){
+	printf("%c", '\0');
+	int oremun = binario_decimal(numero);
+	return decimal_octal(oremun);
 }
 
-int octal_decimal(int numero){
-	printf("Octal a Decimal: %d\n", numero);
+char* octal_binario(char* numero){
+	printf("%c", '\0');
+	int oremun = octal_decimal(numero);
+	return decimal_binario(oremun);
+}
+
+char* binario_hexadecimal(char* numero){
+	printf("Binario a Hexadecimal: %s\n", numero);
 	return 0;
 }
 
@@ -125,12 +138,8 @@ char* hexadecimal_binario(char* numero){
 	return 0;
 }
 
-int hexadecimal_decimal(char* numero){
-	printf("Hexadecimal a Decimal: %s\n", numero);
-	return 0;
-}
-
 int hexadecimal_octal(char* numero){
 	printf("Hexadecimal a Octal: %s\n", numero);
 	return 0;
 }
+
