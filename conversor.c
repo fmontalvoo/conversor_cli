@@ -27,7 +27,7 @@ void chose_option(int option, char* numero){
 		break;
 
 		case 2:
-			binario_octal(numero);
+			printf("%s\n", binario_octal(numero));
 		break;
 
 		case 3:
@@ -39,7 +39,7 @@ void chose_option(int option, char* numero){
 		break;
 		
 		case 5:
-			decimal_octal(atoi(numero));
+			printf("%s\n", decimal_octal(atoi(numero)));
 		break;
 		
 		case 6:
@@ -47,11 +47,11 @@ void chose_option(int option, char* numero){
 		break;
 		
 		case 7:
-			octal_binario(atoi(numero));
+			printf("%s\n", octal_binario(numero));
 		break;
 		
 		case 8:
-			octal_decimal(atoi(numero));
+			printf("%d\n", octal_decimal(numero));
 		break;
 		
 		case 9:
