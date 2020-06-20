@@ -2,20 +2,40 @@
 
 #include "conversor.h"
 
+void usage(){
+	printf("Modo de uso: conversor [OPCIÓN].. [NÚMERO]\n");
+	puts("Realiza conversiones entre las distintos sistemas númericos");
+	puts("opciones -bdohn");
+	puts("\n");
+	puts(" -b,	--binary		Establece el sistema binario.");
+	puts(" -d,	--decimal		Establece el sistema decimal.");
+	puts(" -o,	--octal			Establece el sistema octal.");
+	puts(" -h,	--hexadecimal		Establece el sistema hexadecimal.");
+	puts(" -n,	--number		Parámetro obligatorio que indica el número a convertir.");
+	puts("\n");
+	puts("Ejemplo:");
+	puts("	$ conversor --decimal --binary --number 10");
+	puts("	$ conversor -dbn 10");
+}
+
 static struct option long_options[] = {
 	{"binary"	,no_argument	,0	,'b'},
 	{"decimal"	,no_argument	,0	,'d'},
 	{"octal"	,no_argument	,0	,'o'},
 	{"hexadecimal"	,no_argument	,0	,'h'},
 	{"number"	,required_argument,	0,'n'},
-	{0, 0, 0, 0}
+	{0,		0,		0,	0}
 };
 
 void set_option(char options[], char c, int index){
-	if(index <= 1)
+	if(index <= 1){
 		options[index] = c;
-	else
+	}
+	else{
+		usage();
 		exit(EXIT_FAILURE);
+	}
+	
 }
 
 void chose_option(int option, char* numero){
@@ -88,7 +108,7 @@ int main(int argc, char *argv[]){
 		
 		if(option == -1)
 			break;
-		
+
 		switch(option){
 		
 			case 'b':
@@ -116,7 +136,7 @@ int main(int argc, char *argv[]){
 			break;
 			
 			default:
-				printf("Error\n");
+				usage();
 				exit(EXIT_FAILURE);
 		}
 	}
