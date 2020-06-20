@@ -3,11 +3,6 @@
 #include <string.h>
 #include <ctype.h>
 
-/**
- *
- * Metodo para elevar a una potencia un numero.
- *
- */
 int elevar(int n, int e){
 	int res = n;
 	if (e == 0)
@@ -18,11 +13,6 @@ int elevar(int n, int e){
 	return res;
 }
 
-/**
- *
- * Invierte una cadena de texto.
- *
- */
 char* invertir(char* str, int len){
 	char* i = str;
 	char* j = str + len - 1;
@@ -51,7 +41,7 @@ char* resolver_div(int numero, int dividendo){
 	for (int i = numero, j = 0; i > 0; i /= dividendo, j++){
 		int res = i % dividendo;
 		aux[j] = res + '0'; // Convierte int a char
-		aux[j+1] =  '\0';
+		aux[j+1] = '\0';
 	}
 	resultado = aux;
 	return invertir(resultado, strlen(resultado));
@@ -139,13 +129,13 @@ char* decimal_hexadecimal(int numero){
 	char aux[100];
 	for (int i = numero, j = 0; i > 0; i /= 16, j++){
 		int res = i % 16;
-		if (res >= 10){
+		if (res >= 10)
 			aux[j] = letras(res);
-		}else{
+		else
 			aux[j] = res + '0';
-		}
-		aux[j+1] =  '\0';
+		aux[j+1] = '\0';
 	}
+	
 	resultado = aux;
 	return invertir(resultado, strlen(resultado));
 }
