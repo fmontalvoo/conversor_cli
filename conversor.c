@@ -4,7 +4,7 @@
 
 void usage(){
 	printf("Modo de uso: conversor [OPCIÓN].. [NÚMERO]\n");
-	puts("Realiza conversiones entre las distintos sistemas númericos");
+	puts("Realiza conversiones entre los distintos sistemas numéricos");
 	puts("opciones -bdohn");
 	puts("\n");
 	puts(" -b,	--binary		Establece el sistema binario.");
