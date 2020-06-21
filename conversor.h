@@ -6,11 +6,8 @@
 int elevar(int n, int e){
 	int res = n;
 	if (e == 0)
-		res = 1;
-	else
-		for (int i = 1; i < e; i++)
-			res *= n;
-	return res;
+		return 1;
+	return n * elevar(n, e-1);
 }
 
 char* invertir(char* str, int len){
