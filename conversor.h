@@ -3,7 +3,7 @@
 #include <string.h>
 #include <ctype.h>
 
-int elevar(int n, int e){;
+int elevar(int n, int e){
 	if (e == 0)
 		return 1;
 	return n * elevar(n, e-1);
