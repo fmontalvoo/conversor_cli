@@ -98,11 +98,10 @@ int hexadecimal_decimal(char* numero){
 	int oremun[len];
 	int decimal = 0;
 
-	for (int i = 0; i < len; i++)
+	for (int i = 0; i < len; i++){
 		oremun[i] = 0;
-
-	for (int i = 0; i < len; i++)
 		hexa[i] = toupper(numero[i]);
+	}
 
 	for (int i = 0; i < len; i++){
 		for (int j = 0; j < strlen(letras); j++){
@@ -111,9 +110,6 @@ int hexadecimal_decimal(char* numero){
 				hexa[i] = '0';
 			}
 		}
-	}
-
-	for (int i = 0; i < len; i++){
 		if (hexa[i] != '0')
 			oremun[i] = hexa[i] - '0';
 	}
