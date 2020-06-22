@@ -97,9 +97,6 @@ int hexadecimal_decimal(char* numero){
 	for (int i = 0; i < len; i++){
 		oremun[i] = 0;
 		hexa[i] = toupper(numero[i]);
-	}
-
-	for (int i = 0; i < len; i++){
 		for (int j = 0; j < strlen(letras); j++){
 			if (hexa[i] == letras[j]){
 				oremun[i] = numeros(hexa[i]);
