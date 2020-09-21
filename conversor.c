@@ -105,36 +105,36 @@ int main(int argc, char *argv[]){
 
 		int option_index = 0;
 		option = getopt_long(argc, argv, "bdohn:", long_options, &option_index);
-		
+
 		if(option == -1)
 			break;
 
 		switch(option){
-		
+
 			case 'b':
 				set_option(options, 'b', index);
 				index++;
 			break;
-			
+
 			case 'd':
 				set_option(options, 'd', index);
 				index++;
 			break;
-			
+
 			case 'o':
 				set_option(options, 'o', index);
 				index++;
 			break;
-			
+
 			case 'h':
 				set_option(options, 'h', index);
 				index++;
 			break;
-			
+
 			case 'n':
 				numero = optarg;
 			break;
-			
+
 			default:
 				usage();
 				exit(EXIT_FAILURE);
