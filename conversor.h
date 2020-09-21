@@ -4,12 +4,11 @@
 #include <ctype.h>
 
 int elevar(int n, int e){
-	if (e == 0)
-		return 1;
+	if (e == 0) return 1;
 	return n * elevar(n, e-1);
 }
 
-char* invertir(char* str, int len){
+char* invertir_texto(char* str, int len){
 	char* i = str;
 	char* j = str + len - 1;
 	while (i < j) {
@@ -40,7 +39,7 @@ char* resolver_div(int numero, int dividendo){
 		aux[j+1] = '\0';
 	}
 	resultado = aux;
-	return invertir(resultado, strlen(resultado));
+	return invertir_texto(resultado, strlen(resultado));
 }
 
 char letras(int n){
@@ -51,7 +50,7 @@ char letras(int n){
 		case 13: return 'D';
 		case 14: return 'E';
 		case 15: return 'F';
-		default: return 0;
+		default: return '\0';
 	}
 }
 
@@ -88,7 +87,7 @@ char* decimal_octal(int numero){
 }
 
 int hexadecimal_decimal(char* numero){
-	char hexa[100]; 
+	char hexa[100];
 	char letras[] = "ABCDEF";
 	int len = strlen(numero);
 	int oremun[len];
@@ -124,9 +123,9 @@ char* decimal_hexadecimal(int numero){
 			aux[j] = res + '0';
 		aux[j+1] = '\0';
 	}
-	
+
 	resultado = aux;
-	return invertir(resultado, strlen(resultado));
+	return invertir_texto(resultado, strlen(resultado));
 }
 
 char* binario_octal(char* numero){
