@@ -3,7 +3,7 @@
 #include "conversor.h"
 
 void usage(){
-	printf("Modo de uso: conversor [OPCIÓN].. [NÚMERO]\n");
+	puts("Modo de uso: conversor [OPCIÓN].. [NÚMERO]\n");
 	puts("Realiza conversiones entre los distintos sistemas numéricos");
 	puts("opciones -bdohn");
 	puts("\n");
@@ -40,8 +40,8 @@ void set_option(char options[], char c, int index){
 
 void chose_option(int option, char* numero){
 	int n = 0;
+	putchar('\0');
 	switch(option){
-
 		case 1:
 			printf("%d\n", binario_decimal(numero));
 		break;

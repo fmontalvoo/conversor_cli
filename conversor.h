@@ -67,22 +67,18 @@ int numeros(char c){
 }
 
 int binario_decimal(char* numero){
-	printf("%c", '\0');
 	return resolver_exp(numero, 2);
 }
 
 char* decimal_binario(int numero){
-	printf("%c", '\0');
 	return resolver_div(numero, 2);
 }
 
 int octal_decimal(char* numero){
-	printf("%c", '\0');
 	return resolver_exp(numero, 8);
 }
 
 char* decimal_octal(int numero){
-	printf("%c", '\0');
 	return resolver_div(numero, 8);
 }
 
@@ -129,37 +125,31 @@ char* decimal_hexadecimal(int numero){
 }
 
 char* binario_octal(char* numero){
-	printf("%c", '\0');
 	int oremun = binario_decimal(numero);
 	return decimal_octal(oremun);
 }
 
 char* octal_binario(char* numero){
-	printf("%c", '\0');
 	int oremun = octal_decimal(numero);
 	return decimal_binario(oremun);
 }
 
 char* binario_hexadecimal(char* numero){
-	printf("%c", '\0');
 	int oremun = binario_decimal(numero);
 	return decimal_hexadecimal(oremun);
 }
 
 char* octal_hexadecimal(char* numero){
-	printf("%c", '\0');
 	int oremun = octal_decimal(numero);
 	return decimal_hexadecimal(oremun);
 }
 
 char* hexadecimal_binario(char* numero){
-	printf("%c", '\0');
 	int oremun = hexadecimal_decimal(numero);
 	return decimal_binario(oremun);
 }
 
 char* hexadecimal_octal(char* numero){
-	printf("%c", '\0');
 	int oremun = hexadecimal_decimal(numero);
 	return decimal_octal(oremun);
 }
