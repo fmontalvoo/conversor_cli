@@ -3,7 +3,7 @@
 #include "conversor.h"
 
 void usage(){
-	puts("Modo de uso: conversor [OPCIÓN].. [NÚMERO]\n");
+	puts("Modo de uso: conversor [OPCIÓN]... [ARGUMENTO]\n");
 	puts("Realiza conversiones entre los distintos sistemas numéricos");
 	puts("opciones -bdohn");
 	puts("\n");
@@ -19,6 +19,7 @@ void usage(){
 }
 
 static struct option long_options[] = {
+	{"help"	,no_argument	,0	,0},
 	{"binary"	,no_argument	,0	,'b'},
 	{"decimal"	,no_argument	,0	,'d'},
 	{"octal"	,no_argument	,0	,'o'},
